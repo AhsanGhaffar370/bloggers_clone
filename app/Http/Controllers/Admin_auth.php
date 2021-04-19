@@ -16,6 +16,7 @@ class Admin_auth extends Controller
         if(isset($res[0])){
             if($res[0]->status==1){
                 $req->session()->put('user_id',$res[0]->id);
+                $req->session()->put('user_name',$res[0]->name);
                 return redirect('admin/post/list');
             }
             else{

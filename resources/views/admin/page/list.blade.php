@@ -1,14 +1,14 @@
 @extends('admin/layout/layout')
 
-@section('page_title','Post Listing')
+@section('page_title','Page Listing')
 
 @section('container')
 
 <div class="">
 	  <div class="page-title">
 		 <div class="title_left">
-			<h1>Post</h1>
-			<h4><a href="/admin/post/add" class="btn btn-primary btn-md">Add Post</a></h4>
+			<h1>Page</h1>
+			<h4><a href="/admin/page/add" class="btn btn-primary btn-md">Add Page</a></h4>
 		 </div>
 	  </div>
 	  <div class="clearfix"></div>
@@ -32,12 +32,10 @@
 							  <thead>
 								 <tr>
 									<th width="2%">S.No</th>
-									<th width="20%">Title</th>
-									<th width="40%">Short Desc</th>
-									<th width="15%">Image</th>
-									<th width="10%">Date</th>
+									<th width="20%">Name</th>
+									<th width="40%">Description</th>
+									<th width="10%">Added On</th>
 									<th width="13%">Action</th>
-									<!-- <th>Action</th> -->
 								 </tr>
 							  </thead>
 							  <tbody>
@@ -45,15 +43,12 @@
 								@foreach ($data as $d)
 								<tr>
 									<td>{{$d['id']}}</td>
-									<td>{{$d['title']}}</td>
-									<td>{{$d['short_desc']}}</td>
+									<td>{{$d['name']}}</td>
+									<td>{{$d['description']}}</td>
+									<td>{{$d['added_on']}}</td>
 									<td>
-									<img src="{{asset('storage/post_images/'.$d['image'])}}" class="img-thumbnail img-fluid" alt="post img" srcset="">
-									</td>
-									<td>{{$d['post_date']}}</td>
-									<td>
-									<a href={{'/admin/post/update-rec/'.$d['id']}} class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;&nbsp;
-									<a href={{'/admin/post/delete-rec/'.$d['id']}}  class="btn btn-danger btn-sm">Delete</a>
+									<a href={{'/admin/page/update-rec/'.$d['id']}} class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;&nbsp;
+									<a href={{'/admin/page/delete-rec/'.$d['id']}}  class="btn btn-danger btn-sm">Delete</a>
 									</td>
 									
 								</tr>

@@ -33,7 +33,7 @@
                         <ul class="nav side-menu">
                            <li><a href="/admin/post/list"><i class="fa fa-home"></i> Post </a></li>
                            <li><a href="/admin/post/add"><i class="fa fa-home"></i> Add Post </a></li>
-						   <li><a href="#"><i class="fa fa-home"></i> Page </a></li>
+						   <li><a href="/admin/page/list"><i class="fa fa-home"></i> Page </a></li>
 						   <li><a href="#"><i class="fa fa-home"></i> Contact Us </a></li>
 						   
                         </ul>
@@ -51,7 +51,7 @@
                      <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                           Welcome John Doe
+                           Welcome <span class="font-weight-bold ml-1">{{session('user_name')}}</span>
                            </a>
                            <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item"  href="/admin/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
