@@ -29,6 +29,11 @@
                                  <label class="control-label col-md-3 col-sm-3 ">Slug</label>
                                  <div class="col-md-9 col-sm-9 ">
                                     <input type="text" class="form-control" placeholder="Slug" name="slug" required>
+                                    <span class="error_field" style="color: red;">
+                                       @error('slug')
+                                          {{$message}}
+                                       @enderror
+                                    </span>
                                  </div>
                               </div>
                               <div class="form-group row ">

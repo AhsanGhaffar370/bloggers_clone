@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin_auth;
 use App\Http\Controllers\admin\PostController;
 use App\Http\Controllers\admin\PageController;
+use App\Http\Controllers\admin\ContactController;
+use App\Http\Controllers\front\PostCont;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +19,15 @@ use App\Http\Controllers\admin\PageController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::view('/', 'front/home');
+Route::get('/',[PostCont::class,'home']);
+
+// Route::view('/post/{id}', 'front/post');
+Route::get('/post/{id}',[PostCont::class,'single_post']);
 
 Route::view('/admin/login', 'admin/login');
 
@@ -51,6 +59,9 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::post('/admin/page/update12',[PageController::class, 'update']);
     
     // Route::view('/admin/page/editt', 'admin/page/edit');
+
+    
+    Route::get('/admin/contact/list', [ContactController::class, 'listing'] );
 });
 
 Route::get('admin/logout',function(){

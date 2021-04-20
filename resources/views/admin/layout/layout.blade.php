@@ -34,7 +34,7 @@
                            <li><a href="/admin/post/list"><i class="fa fa-home"></i> Post </a></li>
                            <li><a href="/admin/post/add"><i class="fa fa-home"></i> Add Post </a></li>
 						   <li><a href="/admin/page/list"><i class="fa fa-home"></i> Page </a></li>
-						   <li><a href="#"><i class="fa fa-home"></i> Contact Us </a></li>
+						   <li><a href="/admin/contact/list"><i class="fa fa-home"></i> Contact Us </a></li>
 						   
                         </ul>
                      </div>

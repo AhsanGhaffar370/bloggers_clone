@@ -20,7 +20,9 @@ class PageController extends Controller
 
     function add(Request $req){
 
-
+        $req->validate([
+            'slug'=>'required | unique:pages'
+        ]);
         $page=new page;
 
         $page->name=$req->name;
