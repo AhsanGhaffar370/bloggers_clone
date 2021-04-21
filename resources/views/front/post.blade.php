@@ -1,6 +1,8 @@
 @extends('front/layout/layout')
 
-@section('page_title','Post Page')
+@section('page_title',$data->title)
+
+@section('page_name',$data->title)
 
 @section('container')
 

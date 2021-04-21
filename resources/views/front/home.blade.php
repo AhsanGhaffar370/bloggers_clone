@@ -2,11 +2,13 @@
 
 @section('page_title','Home Page')
 
+@section('page_name','CLEAN BLOG')
+
 @section('container')
 
 @foreach($data as $list)
 <div class="post-preview">
-    <a href="post/{{$list->id}}">
+    <a href="post/{{$list->slug}}">
     <h2 class="post-title">
         {{$list->title}}
     </h2>
@@ -14,7 +16,7 @@
     {{$list->short_desc}}
     </h3>
     </a>
-    <p class="post-meta">Posted on {{$list->post_date}}</p>
+    <p class="post-meta">Posted on {{date("M d, Y", strtotime($list->post_date)) }}</p>
 </div>
 <hr>
 @endforeach

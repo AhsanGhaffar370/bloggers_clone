@@ -27,7 +27,9 @@ use App\Http\Controllers\front\PostCont;
 Route::get('/',[PostCont::class,'home']);
 
 // Route::view('/post/{id}', 'front/post');
-Route::get('/post/{id}',[PostCont::class,'single_post']);
+Route::get('/post/{slug}',[PostCont::class,'single_post']);
+
+Route::get('/page/{slug}',[PostCont::class,'page']);
 
 Route::view('/admin/login', 'admin/login');
 

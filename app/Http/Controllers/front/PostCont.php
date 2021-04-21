@@ -14,21 +14,42 @@ class PostCont extends Controller
         // $res= DB::table('posts')->orderBy('id','desc')->get();
         // return view('front/home',['data'=>$res]);
 
-        // $data=post::orderBy('id','desc')->get();
-        // return view('front/home',['data'=>$data]);
+        $data=post::orderBy('id','desc')->get();
+        return view('front/home',['data'=>$data]);
 
-        return view("front/home")->with("data",post::all());
+        // return view("front/home")->with("data",post::all());
     }
 
-    function single_post($id){
+    function single_post($slug){
         
-        // $res= DB::table('posts')->where('id',$id)->get();
+        $res= DB::table('posts')->where('slug',$slug)->get();
         // return view('front/home',['data'=>$res]);
 
         // $res=post::find($id);
         // return view("front/post",['data'=>$res]);
 
-        $res=post::find($id);
-        return view("front/post")->with("data",$res);
+        // $res=post::find($slug);
+
+        // echo "<pre>";
+        // print_r($res[0]);
+        return view("front/post")->with("data",$res[0]);
+    }
+
+    public static function pages_menu(){
+        
+        $res= DB::table('pages')->where('status',"1")->get();
+        return $res;
+
+    }
+
+    function page($slug){
+        
+        $res= DB::table('pages')->where('slug',$slug)->get();
+        
+        // echo "<pre>";
+        // print_r($res[0]);
+        return view("front/page")->with("data",$res[0]);
+        // return view('front/page',['data'=>$res]);
+
     }
 }

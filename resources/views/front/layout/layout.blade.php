@@ -36,15 +36,17 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
+          <?PHP
+
+          use App\Http\Controllers\front\PostCont;
+          $res=PostCont::pages_menu();
+?>
+          @foreach($res as $r)
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="/page/{{$r->slug}}">{{$r->name}}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="post.html">Sample Post</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
+          @endforeach
+         
         </ul>
       </div>
     </div>
@@ -57,14 +59,14 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Clean Blog</h1>
-            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+            <h4 class="display-4 font-weight-bold">@yield('page_name')</h4>
+            <!-- <span class="subheading">A Blog Theme by Start Bootstrap</span> -->
           </div>
         </div>
       </div>
     </div>
   </header>
-
+  
   <!-- Main Content -->
   <div class="container">
     <div class="row">

@@ -21,13 +21,15 @@ class PostController extends Controller
     function add(Request $req){
 
         $req->validate([
-            'image'=>'required | mimes:jpg,jpeg,png,PNG'
+            'image'=>'required | mimes:jpg,jpeg,png,PNG',
+            'slug'=>'required | unique:posts'
         ]);
 
         $post=new post;
 
         $post->title=$req->title;
         // $post->title= $req->input('title');
+        $post->slug=$req->slug;
         $post->short_desc=$req->short_desc;
         $post->long_desc=$req->long_desc;
         $post->post_date=$req->post_date;
@@ -85,6 +87,7 @@ class PostController extends Controller
 
         $post->title=$req->title;
         // $post->title= $req->input('title');
+        $post->slug=$req->slug;
         $post->short_desc=$req->short_desc;
         $post->long_desc=$req->long_desc;
         $post->post_date=$req->post_date;
