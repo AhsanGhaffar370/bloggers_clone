@@ -33,10 +33,11 @@
 								 <tr>
 									<th width="2%">S.No</th>
 									<th width="20%">Title</th>
-									<th width="40%">Short Desc</th>
+									<th width="30%">Short Desc</th>
 									<th width="15%">Image</th>
 									<th width="10%">Date</th>
-									<th width="13%">Action</th>
+									<th width="6%">Status</th>
+									<th width="22%">Action</th>
 									<!-- <th>Action</th> -->
 								 </tr>
 							  </thead>
@@ -52,8 +53,32 @@
 									</td>
 									<td>{{$d['post_date']}}</td>
 									<td>
-									<a href={{'/admin/post/update-rec/'.$d['id']}} class="btn btn-info btn-sm">Edit</a>&nbsp;&nbsp;&nbsp;
-									<a href={{'/admin/post/delete-rec/'.$d['id']}}  class="btn btn-danger btn-sm">Delete</a>
+									@if($d['status'] =="1")
+										<span class="badge badge-success">Active</span>
+									@else
+										<span class="badge badge-danger">In-Active</span>
+									@endif
+									
+									</td>
+									<td>
+									
+									<div class="btn-group" style="display: -webkit-box;">
+										<a href={{'/admin/post/update-rec/'.$d['id']}} class="btn btn-info btn-sm pt-1 pb-1">Edit</a>
+										
+										<button type="button" class="btn btn-info dropdown-toggle btn-sm pt-0 border-secondary border-left" data-toggle="dropdown" aria-expanded="false" style="padding-bottom: 1px !important">
+											<span class="caret"></span>
+											<span class="sr-only">Toggle Dropdown</span>
+										</button>
+										<ul class="dropdown-menu list-group" role="menu">
+											@if($d['status'] =="1")
+												<li><a href={{'/admin/post/update-status/'.$d["id"].'/0'}} class="list-group-item">De-Activate</a></li>
+											@else
+												<li><a href={{'/admin/post/update-status/'.$d["id"].'/1'}}  class="list-group-item">Activate</a></li>
+											@endif
+										</ul>
+										<a href={{'/admin/post/delete-rec/'.$d['id']}}  class="btn btn-danger btn-sm ml-2 pt-1 pb-1 rounded">Delete</a>
+									</div>
+									
 									</td>
 									
 								</tr>

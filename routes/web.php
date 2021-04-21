@@ -46,9 +46,11 @@ Route::group(['middleware'=>['admin_auth']],function(){
 
     Route::get('/admin/post/update-rec/{id}',[PostController::class, 'edit']);
     Route::post('/admin/post/update12',[PostController::class, 'update']);
+    
+    Route::get('/admin/post/update-status/{id}/{status}',[PostController::class, 'update_status']);
 
     // Route::view('/admin/post/editt', 'admin/post/edit');
-    
+
 
     Route::get('/admin/page/list', [PageController::class, 'listing'] );
 
@@ -60,6 +62,8 @@ Route::group(['middleware'=>['admin_auth']],function(){
     Route::get('/admin/page/update-rec/{id}',[PageController::class, 'edit']);
     Route::post('/admin/page/update12',[PageController::class, 'update']);
     
+    Route::get('/admin/page/update-status/{id}',[PageController::class, 'update_status_ajax']);
+
     // Route::view('/admin/page/editt', 'admin/page/edit');
 
     

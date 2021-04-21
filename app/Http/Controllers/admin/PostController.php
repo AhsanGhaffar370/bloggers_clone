@@ -68,6 +68,20 @@ class PostController extends Controller
 
     }
 
+    function update_status($id, $status){
+        
+        $post= post::find($id);
+
+        $post->status=$status;
+        
+        $post->save();
+
+        session()->flash('msg','Post Status Updated');
+        session()->flash('alert','warning');
+
+        return redirect('admin/post/list');
+    }
+
     function edit($id){
         // $post=post::find($id);
         // echo "<pre>";
@@ -76,6 +90,7 @@ class PostController extends Controller
         
         return view("admin/post/update")->with("res",post::find($id));
     }
+
 
     function update(Request $req){
 

@@ -50,6 +50,17 @@ class PageController extends Controller
 
     }
 
+    function update_status_ajax(Request $req, $id){
+        $page= page::find($req->id);
+
+        $page->status=$req->status;
+
+        $page->save();
+
+        echo $req->status;
+
+    }
+
     function edit($id){
         // $page=page::find($id);
         // return view('admin/page/update',['data'=>$page]);

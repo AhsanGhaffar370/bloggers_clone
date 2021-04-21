@@ -78,9 +78,60 @@
             <!-- /footer content -->
          </div>
       </div>
-      <script src="{{ asset('admin_asset/js/jquery.min.js') }}"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <!-- <script src="{{ asset('admin_asset/js/jquery.min.js') }}"></script> -->
       <script src="{{ asset('admin_asset/js/bootstrap.bundle.min.js') }}"></script>
       <script src="{{ asset('admin_asset/js/icheck.min.js') }}"></script>
       <script src="{{ asset('admin_asset/js/custom.js') }}"></script>
+
+
+
+<script>
+   $(document).ready(function(){
+      $('.page-state').click(function(e){
+         e.preventDefault();
+
+         let status_val;
+         let status= $(this).html();
+
+         let href=$(this).attr('href');
+         let id=href.split('/');
+
+         let id_val=id[id.length - 1]
+
+         // alert(id[id.length - 1]);
+         if(status == "De-Activate"){
+            status_val="0";
+         }else{
+            status_val="1";
+         }
+
+         $.ajax({
+            url: href,
+            data:"id=" + id_val + "&status=" + status_val,
+            type: "get",
+            success: function(res){
+               if(res==0){
+                  $('.page-status-'+id_val).html("Activate");
+                  $('.page-status-'+id_val).attr("id","1");
+                  $(".badge-"+id_val).html("In-Active");
+                  // $(".badge-"+id_val).attr("class","badge badge-danger");
+                  $(".badge-"+id_val).removeClass("badge-success");
+                  $(".badge-"+id_val).addClass("badge-danger");
+               }
+               if(res==1){
+                  $('.page-status-'+id_val).html("De-Activate");
+                  $('.page-status-'+id_val).attr("id","0");
+                  $(".badge-"+id_val).html("Active");
+                  // $(".badge-"+id_val).attr("class","badge badge-success");
+                  $(".badge-"+id_val).removeClass("badge-danger");
+                  $(".badge-"+id_val).addClass("badge-success");
+               }
+            }
+         });
+      });
+   });
+</script>
+
    </body>
 </html>
