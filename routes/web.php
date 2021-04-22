@@ -31,8 +31,14 @@ Route::get('/post/{slug}',[PostCont::class,'single_post']);
 
 Route::get('/page/{slug}',[PostCont::class,'page']);
 
-Route::view('/admin/login', 'admin/login');
-
+Route::get('/admin/login', function () {
+    if((session()->has('user_id'))){
+        return redirect('/admin/post/list');
+    }else{
+        return view('admin/login');
+    }
+});
+// Route::view('/admin/login', 'admin/login');
 Route::post('admin/login_req',[Admin_auth::class,'login_req']);
 
 Route::group(['middleware'=>['admin_auth']],function(){

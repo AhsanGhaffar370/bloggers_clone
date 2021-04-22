@@ -6,15 +6,20 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>@yield('page_title')</title>
-      <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-      <link href="{{ asset('admin_asset/css/bootstrap.min.css') }}" rel="stylesheet">
-      <link href="{{ asset('admin_asset/css/font-awesome.min.css') }}" rel="stylesheet">
-      <link href="{{ asset('admin_asset/css/green.css') }}" rel="stylesheet">
-      <link href="{{ asset('admin_asset/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+      <!-- <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
+
+      <!-- <link href="{{ asset('admin_asset/css/bootstrap.min.css') }}" rel="stylesheet"> -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <!-- <link href="{{ asset('admin_asset/css/font-awesome.min.css') }}" rel="stylesheet"> -->
+      <script src="https://use.fontawesome.com/bd39c99e2f.js"></script>
+      <!-- <link href="{{ asset('admin_asset/css/green.css') }}" rel="stylesheet"> -->
+
+      <!-- <link href="{{ asset('admin_asset/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
       <link href="{{ asset('admin_asset/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
       <link href="{{ asset('admin_asset/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
       <link href="{{ asset('admin_asset/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
-      <link href="{{ asset('admin_asset/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('admin_asset/css/scroller.bootstrap.min.css') }}" rel="stylesheet"> -->
       <link href="{{ asset('admin_asset/css/custom.min.css') }}" rel="stylesheet">
    </head>
    <body class="nav-md">
@@ -31,7 +36,7 @@
                      <div class="menu_section">
                         <h3>Menu</h3>
                         <ul class="nav side-menu">
-                           <li><a href="/admin/post/list"><i class="fa fa-home"></i> Post </a></li>
+                           <li><a href="/admin/post/list"><i class="fa fa-home"></i> Post Vessel sale purchase</a></li>
                            <li><a href="/admin/post/add"><i class="fa fa-home"></i> Add Post </a></li>
 						   <li><a href="/admin/page/list"><i class="fa fa-home"></i> Page </a></li>
 						   <li><a href="/admin/contact/list"><i class="fa fa-home"></i> Contact Us </a></li>
@@ -79,8 +84,9 @@
          </div>
       </div>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
       <!-- <script src="{{ asset('admin_asset/js/jquery.min.js') }}"></script> -->
-      <script src="{{ asset('admin_asset/js/bootstrap.bundle.min.js') }}"></script>
+      <!-- <script src="{{ asset('admin_asset/js/bootstrap.bundle.min.js') }}"></script> -->
       <script src="{{ asset('admin_asset/js/icheck.min.js') }}"></script>
       <script src="{{ asset('admin_asset/js/custom.js') }}"></script>
 

@@ -123,7 +123,7 @@ class PostController extends Controller
             
             $post->image=$final_img;
         }
-       
+
 
         $post->save();
 
