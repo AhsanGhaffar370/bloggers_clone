@@ -10,7 +10,9 @@ use App\Models\post;
 class PostCont extends Controller
 {
     function home(){
+
         
+
         // $res= DB::table('posts')->orderBy('id','desc')->get();
         // return view('front/home',['data'=>$res]);
 

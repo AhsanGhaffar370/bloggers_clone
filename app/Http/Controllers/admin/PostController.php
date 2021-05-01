@@ -5,16 +5,27 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\post;
+use Illuminate\Database\Eloquent;
 
 class PostController extends Controller
 {
     function listing(){
+
+        $post= post::where('id',1)->first();
+        // $post->users->each(function($post) {
+        //     echo $post->name;
+        // });
+        dd($post);
+
         $data=post::orderBy('id','desc')->get();
 
         return view('admin/post/list',['data'=>$data]);
     }
 
     function view_add(){
+
+        
+        
         return view('admin/post/add');
     }
 
@@ -26,6 +37,7 @@ class PostController extends Controller
         ]);
 
         $post=new post;
+        // $data=$req->all();
 
         $post->title=$req->title;
         // $post->title= $req->input('title');
@@ -46,6 +58,7 @@ class PostController extends Controller
         
         
         $post->save();
+        // $post->fill($data)->save();
 
         $req->session()->flash('msg','Post Inserted');
         $req->session()->flash('alert','success');
@@ -135,4 +148,25 @@ class PostController extends Controller
         // return Student::find($id);
     }
 
+
+    public function store(Request $request)
+    { 
+        $data=$request->all();
+
+        // $data['topic_id'] = $request->my_topic_id;
+        // if ($request->file('image')){
+        //     $filename = time().'.'.$request->image->getClientOriginalExtension();
+        //     $request->image->move(public_path('uploads/Blog'), $filename);
+        //     $data['image'] = "Blog/".$filename;
+        // }
+       
+        $status=post::create($data);
+        if($status){
+            request()->session()->flash('success','Post Successfully added');
+        }
+        else{
+            request()->session()->flash('error','Please try again!!');
+        }
+        return redirect()->route('post.index');
+    }
 }
