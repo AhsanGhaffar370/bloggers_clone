@@ -58,13 +58,12 @@ class PageController extends Controller
         $page->save();
 
         echo $req->status;
-
     }
 
     function edit($id){
         // $page=page::find($id);
         // return view('admin/page/update',['data'=>$page]);
-        
+
         return view("admin/page/update")->with("res",page::find($id));
     }
 
